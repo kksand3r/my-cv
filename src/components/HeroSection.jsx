@@ -71,8 +71,8 @@ const HeroSection = ({ scrollY }) => {
 					<a href="#projects" className="group relative border-2 border-purple-500 hover:bg-purple-500 hover:bg-opacity-20 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center gap-2">
 						<Code size={20} /> Проєкти
 					</a>
-					<a href="https://docs.google.com/document/d/11z0eA-44fX6GoJphmE-36OJDdVLxlqJfVVTrFmnPckc/edit?tab=t.0#heading=h.h69zfin7z0a8" target="_blank" className="group relative border-2 border-pink-500 hover:bg-pink-500 hover:bg-opacity-20 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center gap-2">
-						<FileText size={20} /> Приклади промтів
+					<a href="https://docs.google.com/document/d/16hGsR8xw84o26n2cHgSdq0PlNbPicySjwwP7sNX5-Mo/edit?usp=sharing" target="_blank" className="group relative border-2 border-pink-500 hover:bg-pink-500 hover:bg-opacity-20 px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center gap-2">
+						<FileText size={20} /> Приклади сценаріїв
 					</a>
 				</div>
 			</div>
