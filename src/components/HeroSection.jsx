@@ -76,15 +76,6 @@ const HeroSection = ({ scrollY }) => {
 					</a>
 				</div>
 			</div>
-
-			<div 
-				className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce transition-opacity duration-300"
-				style={{ opacity: Math.max(0, 1 - scrollY / 200) }}
-			>
-				<div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center items-center pt-2">
-					<div className="w-1 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-				</div>
-			</div>
 		</div>
 	);
 };
