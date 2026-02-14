@@ -15,12 +15,10 @@ export const skillsData = [
 	{ name: 'ChatGPT', level: 85, category: 'AI', color: 'from-purple-500 to-pink-500', icon: '🤖' },
 	{ name: 'Claude AI', level: 70, category: 'AI', color: 'from-yellow-500 to-orange-500', icon: '⚡' },
 	{ name: 'Perplexity AI', level: 70, category: 'AI', color: 'from-blue-500 to-cyan-500', icon: '🔍' },
-	{ name: 'Sora AI', level: 65, category: 'AI', color: 'from-pink-500 to-red-500', icon: '🎥' },
-	{ name: 'Midjourney', level: 70, category: 'AI', color: 'from-indigo-500 to-blue-500', icon: '🎨' },
-	{ name: 'HeyGen', level: 60, category: 'AI', color: 'from-yellow-400 to-amber-500', icon: '🎭' },
+	{ name: 'Veo3', level: 65, category: 'AI', color: 'from-pink-500 to-red-500', icon: '🎥' },
 	{ name: 'Runway', level: 60, category: 'AI', color: 'from-green-400 to-teal-500', icon: '🎬' },
 	{ name: 'KlingAI', level: 50, category: 'AI', color: 'from-purple-600 to-indigo-500', icon: '✨' },
-	{ name: 'Krea', level: 50, category: 'AI', color: 'from-pink-400 to-purple-400', icon: '🧪' },
+
 
 	{
 		name: 'Hardware & Devices',
