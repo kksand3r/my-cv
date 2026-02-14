@@ -56,7 +56,7 @@ const HeroSection = ({ scrollY }) => {
 				</div>
 				<div className="text-lg text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed space-y-4">
 					<p>
-						Привіт! Я студент 3 курсу і захоплююся світом <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">генеративного штучного інтелекту</span>. Створюю текстовий і візуальний контент за допомогою таких інструментів, як ChatGPT, Claude, Sora, Runway та іншими ШІ. Кожен проєкт для мене — це можливість експериментувати, навчатися та вдосконалювати свої навички у сфері AI.
+						Привіт! Я студент 3 курсу і захоплююся світом <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">генеративного штучного інтелекту</span>. Створюю текстовий і візуальний контент за допомогою таких інструментів, як ChatGPT, Claude, Runway, Veo3 та іншими ШІ. Кожен проєкт для мене — це можливість експериментувати, навчатися та вдосконалювати свої навички у сфері AI.
 					</p>
 					<p>
 						Мій досвід у <span className="text-purple-300">комп'ютерних науках</span> та знання <span className="text-green-300">C#</span> і <span className="text-cyan-300">.NET</span> дозволяють підходити до AI-процесів з технічної точки зору, поєднуючи креативність із системним вирішенням задач.
