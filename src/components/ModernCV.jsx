@@ -10,76 +10,88 @@ import CursorFollower from "./CursorFollower";
 import Particle from "./Particle";
 import GlobalStyles from "./GlobalStyles";
 
-
 const ModernCV = () => {
-	const [scrollY, setScrollY] = useState(0);
-	const [showScrollTop, setShowScrollTop] = useState(false);
-	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-	const [visibleSections, setVisibleSections] = useState(new Set());
+    const [scrollY, setScrollY] = useState(0);
+    const [showScrollTop, setShowScrollTop] = useState(false);
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [visibleSections, setVisibleSections] = useState(new Set());
+    const [isMobile, setIsMobile] = useState(false);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			const scrollPos = window.scrollY;
-			setScrollY(scrollPos);
-			setShowScrollTop(scrollPos > 500);
-		};
+    useEffect(() => {
+        const checkDevice = () => {
+            const mobile = window.innerWidth <= 768 || window.matchMedia("(pointer: coarse)").matches;
+            setIsMobile(mobile);
+        };
 
-		const handleMouseMove = (e) => {
-			setMousePosition({ x: e.clientX, y: e.clientY });
-		};
+        checkDevice();
+        
+        const handleScroll = () => {
+            const scrollPos = window.scrollY;
+            setScrollY(scrollPos);
+            setShowScrollTop(scrollPos > 500);
+        };
 
-		window.addEventListener('scroll', handleScroll);
-		window.addEventListener('mousemove', handleMouseMove);
+        const handleMouseMove = (e) => {
+            if (!isMobile) {
+                setMousePosition({ x: e.clientX, y: e.clientY });
+            }
+        };
 
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-			window.removeEventListener('mousemove', handleMouseMove);
-		};
-	}, []);
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('resize', checkDevice);
 
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						setVisibleSections(prev => new Set([...prev, entry.target.id]));
-					}
-				});
-			},
-			{ threshold: 0.1 }
-		);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('resize', checkDevice);
+        };
+    }, [isMobile]);
 
-		document.querySelectorAll('section[id]').forEach(section => {
-			observer.observe(section);
-		});
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setVisibleSections(prev => new Set([...prev, entry.target.id]));
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
 
-		return () => observer.disconnect();
-	}, []);
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
 
-	return (
-		<div className="bg-gray-900 text-gray-100 min-h-screen relative overflow-hidden">
-			<GlobalStyles />
-			<CursorFollower mousePosition={mousePosition} />
+        return () => observer.disconnect();
+    }, []);
 
-			{[...Array(20)].map((_, i) => (
-				<Particle
-					key={i}
-					delay={i * 0.5}
-					duration={5 + Math.random() * 5}
-					x={Math.random() * 100}
-					y={Math.random() * 100}
-				/>
-			))}
+    return (
+        <div className="bg-gray-900 text-gray-100 min-h-screen relative overflow-hidden">
+            <GlobalStyles />
+            
+            {!isMobile && <CursorFollower mousePosition={mousePosition} />}
 
-			<HeroSection scrollY={scrollY} />
-			<SkillSection visibleSections={visibleSections} />
-			<ProjectsSection visibleSections={visibleSections} />
-			<EducationSection visibleSections={visibleSections} />
-			<ContactSection visibleSections={visibleSections} />
-			<Footer />
-			<ScrollToTop showScrollTop={showScrollTop} />
-		</div>
-	);
+            {[...Array(20)].map((_, i) => (
+                <Particle
+                    key={i}
+                    delay={i * 0.5}
+                    duration={5 + Math.random() * 5}
+                    x={Math.random() * 100}
+                    y={Math.random() * 100}
+                />
+            ))}
+
+            <HeroSection scrollY={scrollY} />
+            <SkillSection visibleSections={visibleSections} />
+            <ProjectsSection visibleSections={visibleSections} />
+            <EducationSection visibleSections={visibleSections} />
+            <ContactSection visibleSections={visibleSections} />
+            <Footer />
+            <ScrollToTop showScrollTop={showScrollTop} />
+        </div>
+    );
 };
 
 export default ModernCV;

@@ -1,16 +1,16 @@
 import React from 'react';
 
 const CursorFollower = ({ mousePosition }) => {
-	return (
-		<div
-			className="fixed w-8 h-8 border-2 border-purple-500 rounded-full pointer-events-none z-50 transition-transform duration-100"
-			style={{
-				left: mousePosition.x - 16,
-				top: mousePosition.y - 16,
-				transform: 'translate(-50%, -50%)',
-			}}
-		/>
-	);
+    return (
+        <div
+            className="fixed w-3 h-3 bg-purple-500 rounded-full pointer-events-none z-50 transition-transform duration-75 ease-out shadow-[0_0_15px_rgba(168,85,247,0.8)]"
+            style={{
+                left: mousePosition.x,
+                top: mousePosition.y,
+                transform: 'translate(-50%, -50%)',
+            }}
+        />
+    );
 };
 
 export default CursorFollower;
