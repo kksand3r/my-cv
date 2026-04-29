@@ -17,7 +17,6 @@ export const projectsData = [
 		tech: ['ASP.NET MVC', 'EF'],
 		link: 'https://github.com/kksand3r/PROKSRent',
 		gradient: 'from-blue-600 to-cyan-600',
-		image: proksrentImg // Додано зображення
-
+		image: proksrentImg 
 	}
 ];

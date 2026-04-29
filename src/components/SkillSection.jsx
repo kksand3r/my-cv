@@ -19,7 +19,7 @@ const SkillsSection = ({ visibleSections }) => {
 				</h2>
 
 				<div className="flex justify-center gap-4 mb-12 flex-wrap">
-					{["All", "Frontend", "Backend", "Tools", "AI", "Hardware"].map(category => (
+					{["All", "Frontend", "Backend", "Tools", "AI"].map(category => (
 						<button
 							key={category}
 							onClick={() => setSelectedCategory(category)}

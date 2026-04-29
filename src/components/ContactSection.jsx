@@ -1,11 +1,11 @@
 import React from 'react';
-import { Mail, Phone, Github, MapPin } from 'lucide-react';
+import { Mail, Phone, Github, MapPin, Linkedin } from 'lucide-react';
 
 const ContactSection = ({ visibleSections }) => {
 	return (
 		<section
 			id="contact"
-			className={`py-20 px-4 glass transition-all duration-1000 ${visibleSections.has('contact')
+			className={`py-20 px-4 transition-all duration-1000 ${visibleSections.has('contact')
 				? 'opacity-100 translate-y-0'
 				: 'opacity-0 translate-y-10'
 			}`}
@@ -26,13 +26,16 @@ const ContactSection = ({ visibleSections }) => {
 						<span className="block text-lg">+380 68 326 14 04</span>
 					</a>
 
-					<a href="https://github.com/kksand3r" className="group glass p-8 rounded-2xl card-3d hover:shadow-gray-500/30 transition-all transform hover:scale-105 md:col-span-2">
-						<Github size={32} className="text-gray-300 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-						<span className="block text-lg">github.com/kksand3r</span>
+					<a href="https://github.com/kksand3r" className="group glass p-8 rounded-2xl card-3d hover:shadow-blue-500/30 transition-all transform hover:scale-105" target="_blank" rel="noopener noreferrer">
+						<Github size={32} className="text-gray-300 mx-auto group-hover:scale-110 transition-transform" />
+					</a>
+
+					<a href="https://www.linkedin.com/in/oleksandrbenedyk" className="group glass p-8 rounded-2xl card-3d hover:shadow-blue-500/30 transition-all transform hover:scale-105" target="_blank" rel="noopener noreferrer"x>
+						<Linkedin size={32} className="text-blue-400 mx-auto  group-hover:scale-110 transition-transform" />
 					</a>
 				</div>
 
-				<div className="flex items-center justify-center gap-3 text-gray-400 text-lg">
+				<div className="flex items-center justify-center gap-3 text-gray-400 text-lg ">
 					<MapPin size={24} className="text-purple-400" />
 					<span>Костопіль, Україна</span>
 				</div>

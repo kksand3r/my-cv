@@ -5,7 +5,7 @@ const EducationSection = ({ visibleSections }) => {
 	return (
 		<section
 			id="education"
-			className={`py-20 px-4 transition-all duration-1000 ${visibleSections.has('education')
+			className={`py-20 glass px-4 transition-all duration-1000 ${visibleSections.has('education')
 				? 'opacity-100 translate-y-0'
 				: 'opacity-0 translate-y-10'
 			}`}

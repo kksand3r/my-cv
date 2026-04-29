@@ -18,34 +18,4 @@ export const skillsData = [
 	{ name: 'Veo3', level: 65, category: 'AI', color: 'from-pink-500 to-red-500', icon: '🎥' },
 	{ name: 'Runway', level: 60, category: 'AI', color: 'from-green-400 to-teal-500', icon: '🎬' },
 	{ name: 'KlingAI', level: 50, category: 'AI', color: 'from-purple-600 to-indigo-500', icon: '✨' },
-
-
-	{
-		name: 'Hardware & Devices',
-		level: 80,
-		category: 'Hardware',
-		color: 'from-gray-500 to-slate-400',
-		icon: '🧠',
-	},
-	{
-		name: 'PC & Laptop Components',
-		level: 75,
-		category: 'Hardware',
-		color: 'from-zinc-500 to-gray-400',
-		icon: '🖥️',
-	},
-	{
-		name: 'Mobile Devices (Android)',
-		level: 70,
-		category: 'Hardware',
-		color: 'from-green-500 to-emerald-400',
-		icon: '📱',
-	},
-	{
-		name: 'Performance & Optimization',
-		level: 65,
-		category: 'Hardware',
-		color: 'from-purple-500 to-indigo-400',
-		icon: '⚙️',
-	},
 ];

@@ -1,107 +1,104 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Code, FileText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Github } from 'lucide-react';
 import photo from '../assets/photo.jpg';
 
-const HeroSection = ({ scrollY }) => {
+const HeroSection = () => {
     const [typedText, setTypedText] = useState('');
-    const fullText = "AI Creator";
-    const heroRef = useRef(null);
-    const [isMobile, setIsMobile] = useState(false);
+    const fullText = "Junior Creative Production";
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-
         let index = 0;
+
         const timer = setInterval(() => {
             if (index <= fullText.length) {
                 setTypedText(fullText.slice(0, index));
                 index++;
-            } else clearInterval(timer);
+            } else {
+                clearInterval(timer);
+            }
         }, 100);
 
-        return () => {
-            clearInterval(timer);
-            window.removeEventListener('resize', checkMobile);
-        };
+        return () => clearInterval(timer);
     }, []);
 
-    const startFadingAt = isMobile ? 400 : 200; 
-    const fadeDistance = 800; 
-    
-    const opacity = scrollY < startFadingAt 
-        ? 1 
-        : Math.max(0, 1 - (scrollY - startFadingAt) / fadeDistance);
-
-    const blurEffect = scrollY < startFadingAt 
-        ? 0 
-        : Math.min(8, (scrollY - startFadingAt) / 100);
-    
-    const parallaxY = isMobile ? scrollY * 0.05 : scrollY * 0.3;
-
     return (
-        <div 
-            ref={heroRef} 
-            className="relative min-h-screen flex items-center justify-center overflow-hidden transition-all duration-300 ease-out"
-            style={{ 
-                opacity: opacity,
-                filter: `blur(${blurEffect}px)`
-            }}
-        >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-gray-900 opacity-90 animate-gradient"></div>
+        <section className="min-h-screen flex items-center justify-center bg-black px-6 md:px-12 relative overflow-hidden">
+
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-gray-900 opacity-90"></div>
 
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute w-64 h-64 md:w-96 md:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
-                    style={{ top: '10%', left: '10%', animationDuration: '4s' }}></div>
-                <div className="absolute w-64 h-64 md:w-96 md:h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
-                    style={{ bottom: '10%', right: '10%', animationDuration: '5s', animationDelay: '1s' }}></div>
-                <div className="absolute w-64 h-64 md:w-96 md:h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
-                    style={{ top: '50%', left: '50%', animationDuration: '6s', animationDelay: '2s' }}></div>
+                <div className="absolute w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-20 animate-pulse top-10 left-10"></div>
+                <div className="absolute w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse bottom-10 right-10"></div>
+                <div className="absolute w-96 h-96 bg-pink-500 rounded-full blur-3xl opacity-20 animate-pulse top-1/2 left-1/2"></div>
             </div>
 
-            <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-10 md:pt-0"
-                style={{ transform: `translateY(${parallaxY}px)` }}>
-                
-                <div className="mb-6 md:mb-8 inline-block group">
-                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 p-1 animate-gradient group-hover:scale-110 transition-transform duration-300">
+            <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-12 z-10 pt-20 pb-10">
+
+                <div className="flex-1 flex flex-col items-start text-left">
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-black/30 text-purple-300 text-xs font-medium mb-8 backdrop-blur">
+                        <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                        Available for opportunities
+                    </div>
+
+                    <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                        Олександр <br className="hidden md:block" /> Бенедик
+                    </h1>
+
+                    <div className="text-xl md:text-3xl mb-6 text-gray-200 h-10 md:h-12">
+                        <span className="border-r-2 border-purple-400 pr-2 animate-pulse">
+                            {typedText}
+                        </span>
+                    </div>
+
+					<p className="text-lg md:text-xl text-gray-300 font-light mb-8 max-w-2xl leading-relaxed">
+						Привіт! Я студент 3-го курсу, який розвивається в напрямку 
+						<span className="text-purple-300 font-medium"> Creative Production. </span> 
+						Створюю крео для TikTok, Instagram, Facebook і YouTube Shorts. Постійно експериментую з AI-інструментами (ChatGPT, Claude, Runway, Kling), аналізую тренди TikTok та Instagram, тестую різні підходи та намагаюся зрозуміти, що краще заходить аудиторії.
+					</p>
+					
+                    <div className="flex items-center gap-4 flex-wrap">
+                        <a
+                            href="#projects"
+                            className="group flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white
+                                       bg-gradient-to-r from-purple-600 to-blue-600
+                                       shadow-lg shadow-purple-900/40
+                                       hover:scale-105 transition-all duration-300"
+                        >
+                            Проєкти
+                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+						</a>
+						
+                        <a
+                            href="https://docs.google.com/document/d/1sWXwUYpkqfvPtf2A-3YE3f3lQsIpsJ0ZXj02wRi28i4/edit?tab=t.0#heading=h.6ttfwlag5hen"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group flex items-center gap-2 px-6 py-3 rounded-full font-medium
+                                       text-purple-200 border border-purple-500/40
+                                       bg-white/5 backdrop-blur-md
+                                       hover:bg-white/10 hover:border-purple-400
+                                       transition-all duration-300 hover:scale-105"
+                        >
+                            Case Study
+                        </a>
+
+                    </div>
+                </div>
+
+                <div className="md:w-1/3 flex justify-center md:justify-end">
+                    <div className="relative group">
+                        <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500 opacity-30 blur-xl group-hover:opacity-50 transition"></div>
+
                         <img
                             src={photo}
                             alt="Бенедик Олександр"
-                            className="w-full h-full rounded-full object-cover"
+                            className="relative w-64 h-80 md:w-80 md:h-[400px] object-cover rounded-2xl border border-purple-500/30"
                         />
                     </div>
                 </div>
 
-                <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient leading-tight">
-                    Бенедик Олександр
-                </h1>
-
-                <div className="text-xl md:text-4xl mb-6 text-gray-300 h-10 md:h-12">
-                    <span className="border-r-2 border-purple-400 pr-2 animate-pulse">{typedText}</span>
-                </div>
-
-                <div className="text-sm md:text-lg text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed space-y-4 px-2">
-                    <p>
-                        Привіт! Я студент 3 курсу і захоплююся світом <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-semibold">генеративного штучного інтелекту</span>. Створюю текстовий і візуальний контент за допомогою таких інструментів, як ChatGPT, Claude, Runway, Veo3 та іншими ШІ. Кожен проєкт для мене — це можливість експериментувати, навчатися та вдосконалювати свої навички у сфері AI.
-                    </p>
-                    <p>
-                        Мій досвід у <span className="text-purple-300">комп'ютерних науках</span> та знання <span className="text-green-300">C#</span> і <span className="text-cyan-300">.NET</span> дозволяють підходити до AI-процесів з технічної точки зору, поєднуючи креативність із системним вирішенням задач.
-                    </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pb-10">
-                    <a href="#contact" className="w-full sm:w-48 group relative bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-6 py-3 md:py-4 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center justify-center gap-2 overflow-hidden">
-                        <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></span>
-                        <Mail size={20} /> <span>Зв'язатися</span>
-                    </a>
-                    <a href="#projects" className="w-full sm:w-48 group relative border-2 border-purple-500 hover:bg-purple-500 hover:bg-opacity-20 px-6 py-3 md:py-4 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center justify-center gap-2">
-                        <Code size={20} /> <span>Проєкти</span>
-                    </a>
-                </div>
-                
             </div>
-        </div>
+        </section>
     );
 };
 
